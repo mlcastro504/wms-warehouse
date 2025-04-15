@@ -1,0 +1,13 @@
+model Log {
+  id        String   @id @default(cuid())
+  level     String
+  message   String
+  stack     String?
+  context   String?
+  tenantId  String?
+  createdAt DateTime @default(now())
+  
+  @@index([tenantId])
+  @@index([level])
+  @@index([createdAt])
+}
